@@ -1,0 +1,174 @@
+{
+  "root": true,
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "plugins": [
+        "@typescript-eslint",
+        "import"
+      ],
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "google",
+        "plugin:import/recommended",
+        "plugin:import/typescript"
+      ],
+      "rules": {
+        "object-curly-spacing": [
+          "error",
+          "always"
+        ],
+        "new-cap": [
+          "warn",
+          {
+            "capIsNew": false
+          }
+        ],
+        "require-jsdoc": "off",
+        "valid-jsdoc": [
+          "warn",
+          {
+            "requireParamType": false,
+            "requireReturnType": false,
+            "prefer": {
+              "return": "returns",
+              "arg": "param",
+              "argument": "param"
+            }
+          }
+        ],
+        "indent": [
+          "error",
+          2,
+          {
+            "SwitchCase": 1
+          }
+        ],
+        "no-invalid-this": "off",
+        "padded-blocks": [
+          "error",
+          {
+            "classes": "always"
+          }
+        ],
+        "no-unused-vars": "off",
+        "max-len": [
+          "error",
+          {
+            "code": 140
+          }
+        ],
+        "camelcase": "off",
+        "sort-imports": [
+          "error",
+          {
+            "ignoreCase": true,
+            "ignoreDeclarationSort": true,
+            "ignoreMemberSort": false,
+            "memberSyntaxSortOrder": [
+              "none",
+              "all",
+              "multiple",
+              "single"
+            ],
+            "allowSeparatedGroups": true
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "app",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "app",
+            "style": "kebab-case"
+          }
+        ],
+        "@typescript-eslint/explicit-member-accessibility": [
+          "error",
+          {
+            "overrides": {
+              "constructors": "no-public"
+            }
+          }
+        ],
+        "@typescript-eslint/type-annotation-spacing": [
+          "error"
+        ],
+        "@typescript-eslint/typedef": [
+          "error",
+          {
+            "arrayDestructuring": false,
+            "parameter": true,
+            "propertyDeclaration": true
+          }
+        ],
+        "@typescript-eslint/interface-name-prefix": "off",
+        "@typescript-eslint/explicit-function-return-type": "error",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/no-explicit-any": [
+          "error"
+        ],
+        "@typescript-eslint/no-inferrable-types": "error",
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          {
+            "argsIgnorePattern": "^_",
+            "varsIgnorePattern": "^_",
+            "caughtErrorsIgnorePattern": "^_"
+          }
+        ],
+        "import/no-unresolved": "off",
+        "import/order": [
+          "error",
+          {
+            "groups": [
+              "builtin",
+              "external",
+              "internal",
+              [
+                "sibling",
+                "parent"
+              ],
+              "index",
+              "unknown"
+            ],
+            "newlines-between": "always",
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "plugins": [
+        "html"
+      ],
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended",
+        "plugin:@angular-eslint/template/accessibility"
+      ],
+      "rules": {
+        "@angular-eslint/template/label-has-associated-control": [
+          "warn"
+        ]
+      }
+    }
+  ]
+}
