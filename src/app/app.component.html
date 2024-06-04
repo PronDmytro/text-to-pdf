@@ -1,0 +1,31 @@
+<main class="flex flex-col h-screen">
+  <section class="flex flex-col gap-6 p-12 pb-6">
+    <h1 class="text-3xl font-semibold text-center">
+      Text to PDF
+    </h1>
+    <app-convert-form (convertEvent)="onConvert($event)"
+    ></app-convert-form>
+  </section>
+  <section class="flex gap-2 py-4 mx-12">
+    <h2 class="text-lg font-medium">History</h2>
+    <div class="flex gap-2 pb-1 overflow-auto">
+      @for (item of (convertedFilesList$ | async); track item.id) {
+        <app-file-chip [file]="item"
+                       (viewEvent)="onViewFile(item.id)"
+                       (deleteEvent)="onDeleteFile(item.id)"
+        ></app-file-chip>
+      } @empty {
+        <span class="text-sm flex items-end">
+          No files converted!
+        </span>
+      }
+    </div>
+  </section>
+  <section class="grow">
+    @if (currentFile()) {
+      <ng2-pdfjs-viewer class="h-full" [pdfSrc]="currentFile()?.file!"></ng2-pdfjs-viewer>
+    }
+  </section>
+</main>
+
+<app-loader></app-loader>

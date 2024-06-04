@@ -1,0 +1,12 @@
+<div
+  class="inline-flex gap-2 items-center text-nowrap rounded-md bg-gray-50 px-3 py-2 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
+  {{ file?.createdAt | date: 'short' }}
+  <fa-icon class="cursor-pointer"
+           [icon]="faEye"
+           (click)="onViewClick()"
+  ></fa-icon>
+  <fa-icon class="cursor-pointer"
+           [icon]="faTrash"
+           (click)="onDeleteClick()"
+  ></fa-icon>
+</div>
