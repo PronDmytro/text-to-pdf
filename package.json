@@ -21,7 +21,7 @@
     "@angular/router": "^18.0.0",
     "@fortawesome/angular-fontawesome": "^0.15.0",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
-    "ng2-pdfjs-viewer": "^17.0.3",
+    "ngx-extended-pdf-viewer": "^20.5.0-alpha.1",
     "ngx-indexed-db": "^18.0.0",
     "ngx-toastr": "^19.0.0",
     "rxjs": "~7.8.0",

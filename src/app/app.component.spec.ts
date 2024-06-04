@@ -62,20 +62,20 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('app-loader')).toBeTruthy();
   });
 
-  it('should render ng2-pdfjs-viewer if current file exists', () => {
+  it('should render ngx-extended-pdf-viewer if current file exists', () => {
     mockPdfService.convert.and.returnValue(of(fileMock));
     component.currentFile.set(fileMock);
     component.onConvert('test');
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('ng2-pdfjs-viewer')).toBeTruthy();
+    expect(compiled.querySelector('ngx-extended-pdf-viewer')).toBeTruthy();
   });
 
-  it('should not render ng2-pdfjs-viewer if current file does not exist', () => {
+  it('should not render ngx-extended-pdf-viewer if current file does not exist', () => {
     component.currentFile.set(null);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('ng2-pdfjs-viewer')).toBeFalsy();
+    expect(compiled.querySelector('ngx-extended-pdf-viewer')).toBeFalsy();
   });
 
   it('should call onConvert when convertEvent is emitted', () => {

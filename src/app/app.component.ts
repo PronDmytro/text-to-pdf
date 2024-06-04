@@ -1,12 +1,12 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, signal, ViewChild } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { ConvertFormComponent } from '@components/convert-form/convert-form.component';
 import { FileChipComponent } from '@components/file-chip/file-chip.component';
 import { LoaderComponent } from '@components/loader/loader.component';
 import { ConvertedFile } from '@models/converted-file.model';
 import { LoadingService } from '@services/loading/loading.service';
 import { PdfService } from '@services/pdf/pdf.service';
-import { PdfJsViewerComponent, PdfJsViewerModule } from 'ng2-pdfjs-viewer';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { ToastrService } from 'ngx-toastr';
 import { finalize, Observable } from 'rxjs';
 
@@ -17,7 +17,7 @@ import { finalize, Observable } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   imports: [
-    PdfJsViewerModule,
+    NgxExtendedPdfViewerModule,
     FileChipComponent,
     ConvertFormComponent,
     AsyncPipe,
@@ -25,9 +25,6 @@ import { finalize, Observable } from 'rxjs';
   ],
 })
 export class AppComponent {
-
-  @ViewChild(PdfJsViewerComponent, { static: false })
-  public pdfViewComponent?: PdfJsViewerComponent;
 
   public currentFile = signal<ConvertedFile | null>(null);
   public convertedFilesList$: Observable<ConvertedFile[]> = this._pdfService.convertedFilesList;
@@ -46,10 +43,7 @@ export class AppComponent {
 
   public onViewFile(fileId: number): void {
     this._pdfService.getConvertedFileById(fileId)
-      .subscribe((file) => {
-        this.currentFile.set(file);
-        this.pdfViewComponent?.refresh();
-      });
+      .subscribe((file) => this.currentFile.set(file));
   }
 
   public onDeleteFile(fileId: number): void {
@@ -59,7 +53,6 @@ export class AppComponent {
           this._fetchConvertedFiles();
           if (this.currentFile()?.id === fileId) {
             this.currentFile.set(null);
-            this.pdfViewComponent?.refresh();
           }
           this._toastr.success('Converted file has been deleted.');
         },
@@ -74,7 +67,6 @@ export class AppComponent {
       .subscribe({
         next: (res) => {
           this.currentFile.set(res);
-          this.pdfViewComponent?.refresh();
           this._toastr.success('Successfully converted');
         },
         error: () => this._toastr.error('Error converting file'),

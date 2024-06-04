@@ -23,7 +23,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 * ConvertFormComponent
 * FileChipComponent
 * LoaderComponent
-* PdfJsViewerComponent - Used from the ng2-pdfjs-viewer package to view PDF files.
+* NgxExtendedPdfViewerComponent - Used from the ngx-extended-pdf-viewer package to view PDF files.
 
 ### Core
 
@@ -32,7 +32,7 @@ This project uses Angular 18.0.0 and TypeScript 5.4.2 for the development.
 The project utilizes the following packages to optimize the application:
 
 * ngx-indexed-db: Provides an easy-to-use API to interact with IndexedDB
-* ng2-pdfjs-viewer: For viewing PDF documents using the PDF.js library.
+* ng2-pdfjs-viewer: For viewing PDF documents.
 * ngx-toastr: Used for pop-up messages.
 
 ### Angular Services
