@@ -115,7 +115,7 @@ describe('AppComponent', () => {
   it('should handle delete file success', () => {
     mockPdfService.deleteConvertedFileById.and.returnValue(of(true));
     component.onDeleteFile(fileMock.id);
-    expect(mockToastrService.success).toHaveBeenCalledWith('Converted file has been deleted.');
+    expect(mockToastrService.success).toHaveBeenCalledWith('Converted file has been deleted');
   });
 
   it('should handle delete file error', () => {

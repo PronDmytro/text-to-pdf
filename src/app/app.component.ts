@@ -54,9 +54,9 @@ export class AppComponent {
           if (this.currentFile()?.id === fileId) {
             this.currentFile.set(null);
           }
-          this._toastr.success('Converted file has been deleted.');
+          this._toastr.success($localize`Converted file has been deleted`);
         },
-        error: () => this._toastr.error('Could not delete file'),
+        error: () => this._toastr.error($localize`Could not delete file`),
       });
   }
 
@@ -67,9 +67,9 @@ export class AppComponent {
       .subscribe({
         next: (res) => {
           this.currentFile.set(res);
-          this._toastr.success('Successfully converted');
+          this._toastr.success($localize`Successfully converted`);
         },
-        error: () => this._toastr.error('Error converting file'),
+        error: () => this._toastr.error($localize`Error converting file`),
       });
   }
 
