@@ -6,10 +6,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
@@ -18,10 +14,45 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+# Project Structure
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Main structure
 
-## Further help
+* The project is structured into different components which includes:
+* AppComponent (acts as the root component)
+* ConvertFormComponent
+* FileChipComponent
+* LoaderComponent
+* PdfJsViewerComponent - Used from the ng2-pdfjs-viewer package to view PDF files.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Core
+
+This project uses Angular 18.0.0 and TypeScript 5.4.2 for the development.
+
+The project utilizes the following packages to optimize the application:
+
+* ngx-indexed-db: Provides an easy-to-use API to interact with IndexedDB
+* ng2-pdfjs-viewer: For viewing PDF documents using the PDF.js library.
+* ngx-toastr: Used for pop-up messages.
+
+### Angular Services
+
+The services are injected which help to keep the code clean and prepare data for the components:
+
+* PdfService service is being is used for functionalities related to PDF conversion and file management.
+* LoadingService service is being used for setting and getting the loading state of the application.
+
+### Angular Models
+
+The project uses the following models:
+
+* ConvertedFile model represents the structure of a converted PDF file.
+
+### Angular Components
+
+The project is divided into the following components to neatly segment functionality:
+
+* AppComponent: The main app component which incorporates other components and services. It contains the main layout and it manages the processes of converting texts to PDF, viewing and deleting files.
+* ConvertFormComponent: This component presumably handles conversion form related actions.
+* FileChipComponent: This component presumably handles listing and selection of converted files.
+* LoaderComponent: A simple loading spinner component used to indicate data loading or processing events.
