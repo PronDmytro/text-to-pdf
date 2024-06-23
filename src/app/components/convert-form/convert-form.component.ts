@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { QuillEditorComponent } from 'ngx-quill';
 
 @Component({
   selector: 'app-convert-form',
@@ -7,6 +8,7 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     FormsModule,
     ReactiveFormsModule,
+    QuillEditorComponent,
   ],
   templateUrl: './convert-form.component.html',
   styleUrl: './convert-form.component.scss',

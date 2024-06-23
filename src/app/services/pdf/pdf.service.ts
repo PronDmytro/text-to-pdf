@@ -28,7 +28,7 @@ export class PdfService {
   }
 
   public convert(text: string): Observable<ConvertedFile> {
-    return this._http.post<Blob>(`${this._BASE_URL}/create-pdf`, { text }, { responseType: 'blob' as 'json' })
+    return this._http.post<Blob>(`${this._BASE_URL}/text-to-pdf`, { text }, { responseType: 'blob' as 'json' })
       .pipe(
         switchMap((blob: Blob) => this._insertFileToDb(blob)),
         tap((convertedFile) => this._convertedFilesList$.next([...this._convertedFilesList$.value, convertedFile])),
